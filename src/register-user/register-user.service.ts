@@ -1,26 +1,42 @@
 import { Injectable } from '@nestjs/common';
 import { CreateRegisterUserDto } from './dto/create-register-user.dto';
 import { UpdateRegisterUserDto } from './dto/update-register-user.dto';
+import { RegisterUser } from './entities/register-user.entity';
+import { InjectModel } from '@nestjs/sequelize';
 
 @Injectable()
 export class RegisterUserService {
-  create(createRegisterUserDto: CreateRegisterUserDto) {
-    return 'This action adds a new registerUser';
+  constructor(
+    @InjectModel(RegisterUser)
+    private registerUser: typeof RegisterUser,
+  ) {}
+
+  async create(createRegisterUserDto: CreateRegisterUserDto) {
+    try {
+      await this.registerUser.create(createRegisterUserDto);
+      return 'Dato creado de manera correcta';
+    } catch (error) {
+      return 'Error en la creacion';
+    }
   }
 
-  findAll() {
-    return `This action returns all registerUser`;
+  async findAll(): Promise<RegisterUser[]> {
+    return this.registerUser.findAll<RegisterUser>();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} registerUser`;
+  async findOne(id: number): Promise<RegisterUser>{
+    return this.registerUser.findOne({
+      where: {
+        id,
+      },
+    });
   }
 
-  update(id: number, updateRegisterUserDto: UpdateRegisterUserDto) {
+  async update(id: number, updateRegisterUserDto: UpdateRegisterUserDto) {
     return `This action updates a #${id} registerUser`;
   }
 
-  remove(id: number) {
+  async remove(id: number) {
     return `This action removes a #${id} registerUser`;
   }
 }
