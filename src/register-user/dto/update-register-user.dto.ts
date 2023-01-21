@@ -1,4 +1,25 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreateRegisterUserDto } from './create-register-user.dto';
+import { ApiProperty } from '@nestjs/swagger';
+import { IsEmail, IsNumberString, MaxLength, MinLength } from 'class-validator';
+export class UpdateRegisterUserDto {
+  @ApiProperty()
+  @MinLength(0)
+  @MaxLength(20)
+  @IsNumberString()
+  IdNumber: string;
 
-export class UpdateRegisterUserDto extends PartialType(CreateRegisterUserDto) {}
+  @ApiProperty()
+  firstName: string;
+
+  @ApiProperty()
+  lastName: string;
+
+  @ApiProperty()
+  @IsEmail()
+  Email: string;
+
+  @ApiProperty()
+  @MinLength(0)
+  @MaxLength(20)
+  @IsNumberString()
+  Phone: string;
+}

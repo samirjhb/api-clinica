@@ -55,7 +55,7 @@ export class RegisterUserController {
 
   @Delete(':id')
   @HttpCode(200)
-  remove(@Param('id') id: string) {
-    return this.registerUserService.remove(+id);
+  remove(@Param('id') id: number) {
+    return this.registerUserService.remove(id);
   }
 }

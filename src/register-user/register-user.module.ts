@@ -7,6 +7,6 @@ import { SequelizeModule } from '@nestjs/sequelize';
 @Module({
   imports: [SequelizeModule.forFeature([RegisterUser])],
   controllers: [RegisterUserController],
-  providers: [RegisterUserService]
+  providers: [RegisterUserService],
 })
 export class RegisterUserModule {}

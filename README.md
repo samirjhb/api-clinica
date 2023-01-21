@@ -2,16 +2,71 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
 </p>
 
-## Description
-Aprende a crear un proyecto web Backend usano Nestjs, el framework backend de Nodejs, y MySQL, la base de datos SQL más popular, en conjunto con TypeORM, el ORM de Typescript. En este proyecto aprenderemos a crear módulos, controladores, servicios y entidades que interactuen con una base de datos.
+## Descripcion 📝
+ Esta API tiene como objetivo el registro de  pacientes para una clinica. 
 
-## Installation
+ Las  peticiones que se puede realizar son las siguiente:
+
+ ```bash
+ # Tipo GET
+
+ 📍 http://localhost:3000/v1/register-user
+ ```
+
+ ```bash
+ # Tipo GET con ID
+
+ 📍 http://localhost:3000/v1/register-user/id
+ ```
+
+  ```bash
+ # Tipo POST
+
+ 📍 http://localhost:3000/v1/register-user
+
+ #Con un Request tipo JSON
+      {
+        "IdNumber": "12340920465",
+        "firstName": "Samir",
+        "lastName": "Hadechni",
+        "Email": "samir@gmail.com",
+        "Phone": "+56977476787"
+      }
+
+ ```
+
+  ```bash
+ # Tipo DELETE con ID
+
+ 📍 http://localhost:3000/v1/register-user/id
+ ```
+
+   ```bash
+ # Tipo PATCH
+
+ 📍 http://localhost:3000/v1/register-user/id
+
+ #Con un Request tipo JSON
+      {
+        "IdNumber": "12340920465",
+        "firstName": "Samir",
+        "lastName": "Hadechni",
+        "Email": "samir@gmail.com",
+        "Phone": "+56977476787"
+      }
+
+ ```
+
+
+
+
+## Intalacion
 
 ```bash
 $ npm install
 ```
 
-## Running the app
+## Ejecutar la App
 
 ```bash
 # development
@@ -24,7 +79,7 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
+## Testing
 
 ```bash
 # unit tests
@@ -38,6 +93,6 @@ $ npm run test:cov
 ```
 
 
-## Author
+## Autor
 
-- Samir Hadechni
+- 🧑🏻‍💻 Samir Hadechni

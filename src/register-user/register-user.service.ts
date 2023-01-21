@@ -11,32 +11,50 @@ export class RegisterUserService {
     private registerUser: typeof RegisterUser,
   ) {}
 
-  async create(createRegisterUserDto: CreateRegisterUserDto) {
+  //Servicio para la creacion de paciente
+  async create(
+    createRegisterUserDto: CreateRegisterUserDto,
+  ): Promise<RegisterUser> {
     try {
-      await this.registerUser.create(createRegisterUserDto);
-      return 'Dato creado de manera correcta';
+      return await this.registerUser.create<RegisterUser>(
+        createRegisterUserDto,
+      );
     } catch (error) {
-      return 'Error en la creacion';
+      return error;
     }
   }
 
+  //Servicio para obtener los paciente
   async findAll(): Promise<RegisterUser[]> {
-    return this.registerUser.findAll<RegisterUser>();
+    return await this.registerUser.findAll<RegisterUser>();
   }
 
-  async findOne(id: number): Promise<RegisterUser>{
-    return this.registerUser.findOne({
+  //Servicio para obtener paciente por id
+  async findOne(id: number): Promise<RegisterUser> {
+    return await this.registerUser.findOne({
       where: {
         id,
       },
     });
   }
 
+  //Servicio para actualizar paciente
   async update(id: number, updateRegisterUserDto: UpdateRegisterUserDto) {
-    return `This action updates a #${id} registerUser`;
+    try {
+      await this.registerUser.update(updateRegisterUserDto, { where: { id } });
+      return `Paciente con el id  #${id} fue actualizado`;
+    } catch (error) {
+      return `Paciente con el id  #${id} no se pudo actualizar`;
+    }
   }
 
+  //Servicio para eliminar paciente
   async remove(id: number) {
-    return `This action removes a #${id} registerUser`;
+    try {
+      await this.registerUser.destroy({ where: { id } });
+      return `Paciente con el id  #${id} fue eliminado`;
+    } catch (error) {
+      return `Paciente con el id  #${id} no se pudo eliminar`;
+    }
   }
 }
