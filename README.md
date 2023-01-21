@@ -3,70 +3,99 @@
 </p>
 
 ## Descripcion 📝
- Esta API tiene como objetivo el registro de  pacientes para una clinica. 
 
- Las  peticiones que se puede realizar son las siguiente:
+Esta API tiene como objetivo el registro de pacientes para una clinica.
 
- ```bash
- # Tipo GET
+Las peticiones que se puede realizar son las siguiente:
 
- 📍 http://localhost:3000/v1/register-user
- ```
+```bash
+# Tipo GET
 
- ```bash
- # Tipo GET con ID
+📍 http://localhost:3000/v1/register-user
+```
 
- 📍 http://localhost:3000/v1/register-user/id
- ```
+```bash
+# Tipo GET con ID
 
-  ```bash
- # Tipo POST
+📍 http://localhost:3000/v1/register-user/id
+```
 
- 📍 http://localhost:3000/v1/register-user
+```bash
+# Tipo POST
 
- #Con un Request tipo JSON
-      {
-        "IdNumber": "12340920465",
-        "firstName": "Samir",
-        "lastName": "Hadechni",
-        "Email": "samir@gmail.com",
-        "Phone": "+56977476787"
-      }
+📍 http://localhost:3000/v1/register-user
 
- ```
+#Con un Request tipo JSON
+    {
+      "IdNumber": "12340920465",
+      "firstName": "Samir",
+      "lastName": "Hadechni",
+      "Email": "samir@gmail.com",
+      "Phone": "+56977476787"
+    }
 
-  ```bash
- # Tipo DELETE con ID
+```
 
- 📍 http://localhost:3000/v1/register-user/id
- ```
+```bash
+# Tipo DELETE con ID
 
-   ```bash
- # Tipo PATCH
+📍 http://localhost:3000/v1/register-user/id
+```
 
- 📍 http://localhost:3000/v1/register-user/id
+```bash
+# Tipo PATCH
 
- #Con un Request tipo JSON
-      {
-        "IdNumber": "12340920465",
-        "firstName": "Samir",
-        "lastName": "Hadechni",
-        "Email": "samir@gmail.com",
-        "Phone": "+56977476787"
-      }
+📍 http://localhost:3000/v1/register-user/id
 
- ```
+#Con un Request tipo JSON
+   {
+     "IdNumber": "12340920465",
+     "firstName": "Samir",
+     "lastName": "Hadechni",
+     "Email": "samir@gmail.com",
+     "Phone": "+56977476787"
+   }
 
+```
 
+```bash
+# Ruta para prueba mediante Swagger
 
+📍 http://localhost:3000/documentation
+```
 
-## Intalacion
+```bash
+# Ruta para observar DB pgadmin
+
+📍 http://localhost:80
+
+# Para ingresar
+
+User:admin@admin.com
+contraseña: admin
+
+```
+## Run Mediante Docker 🐳
+
+```bash
+ # La API se debe ejecutar el comando en la ruta API-CLINICA
+
+$ docker-compose up
+
+Existen 3 imagenes en el docker compose los cuales son 
+
+📍 api-clinica --> Microservicio o Backend 
+📍 postgres --> Base de datos 
+📍 pgadmin --> Herramienta para visualizar DB
+```
+
+## Intalacion 📍
 
 ```bash
 $ npm install
 ```
 
-## Ejecutar la App
+## Ejecutar la App ⬇️
 
 ```bash
 # development
@@ -92,7 +121,6 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-
 ## Autor
 
-- 🧑🏻‍💻 Samir Hadechni
+-  🧑🏻‍💻 Samir Hadechni - [Portafolio](https://samirjhb.github.io/PortaFolio.github.io/)
